@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Andela Android Application Challenge</string>
+
+    <string-array name="abv_array">
+        <item>NGN</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>JPY</item>
+        <item>KRW</item>
+        <item>RUP</item>
+        <item>SWF</item>
+        <item>HKD</item>
+        <item>GBP</item>
+        <item>INR</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+    </string-array>
+
+    <string-array name="names_array">
+        <item>Naira</item>
+        <item>US Dollars</item>
+        <item>Euros</item>
+        <item>Japanese Yen</item>
+        <item>Korean Won</item>
+        <item>Russian Ruble</item>
+        <item>Swiss Francs</item>
+        <item>Hong Kong Dollars</item>
+        <item>Great Britain Pounds</item>
+        <item>Indian Rupees</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+        <item>NGN</item>
+    </string-array>
+
+    <integer-array name="currency_drawables">
+        <item>@drawable/naira</item>
+        <item>@drawable/usdollars</item>
+        <item>@drawable/euros</item>
+        <item>@drawable/jap_yen</item>
+        <item>@drawable/kor_won</item>
+        <item>@drawable/rus_ruble</item>
+        <item>@drawable/swiss_francs</item>
+        <item>@drawable/hk_dollar</item>
+        <item>@drawable/gbp</item>
+        <item>@drawable/ind_rupee</item>
+        <item>@drawable/can_dollars</item>
+        <item>@drawable/nzl_dollars</item>
+    </integer-array>
+</resources>
