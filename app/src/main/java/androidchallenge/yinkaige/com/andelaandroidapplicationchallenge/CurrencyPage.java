@@ -58,9 +58,9 @@ public class CurrencyPage extends AppCompatActivity {
                         progressDialog.dismiss();
                         try{
                             JSONObject btcJson = response.getJSONObject("BTC");
-                            BTCtv.setText(name + " " + btcJson.getString(abv));
+                            BTCtv.setText(name + ": BTC " + btcJson.getString(abv));
                             JSONObject ethJson = response.getJSONObject("ETH");
-                            ethTv.setText(name + " " + ethJson.getString(abv));
+                            ethTv.setText(name + ": ETH " + ethJson.getString(abv));
                         } catch (JSONException e) {
                             BTCtv.setText(response.toString() + " - "+ e.toString());
                         }
