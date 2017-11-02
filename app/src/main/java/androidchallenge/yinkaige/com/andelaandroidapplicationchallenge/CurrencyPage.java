@@ -21,6 +21,7 @@ public class CurrencyPage extends AppCompatActivity {
     TextView ethTv, BTCtv;
     private String URL;
     private String abv, name;
+    private int ethRate, btcRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,9 @@ public class CurrencyPage extends AppCompatActivity {
                         try{
                             JSONObject btcJson = response.getJSONObject("BTC");
                             BTCtv.setText(name + ": BTC " + btcJson.getString(abv));
+                            btcRate = Integer.parseInt(btcJson.getString(abv));
                             JSONObject ethJson = response.getJSONObject("ETH");
+                            ethRate = Integer.parseInt(ethJson.getString(abv));
                             ethTv.setText(name + ": ETH " + ethJson.getString(abv));
                         } catch (JSONException e) {
                             BTCtv.setText(response.toString() + " - "+ e.toString());
