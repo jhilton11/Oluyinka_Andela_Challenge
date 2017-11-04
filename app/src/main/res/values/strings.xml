@@ -3,6 +3,8 @@
 
     <string name="spinner_prompt">Please choose base currency</string>
 
+    <string name="toolbar_title">Andela Challenge</string>
+
     <string-array name="abv_array">
         <item>NGN</item>
         <item>USD</item>
@@ -56,10 +58,10 @@
         <item>@drawable/usa</item>
         <item>@drawable/eu</item>
         <item>@drawable/japan</item>
-        <item>@drawable/kor_won</item>
+        <item>@drawable/korea</item>
         <item>@drawable/russia</item>
         <item>@drawable/swiss</item>
-        <item>@drawable/hk_dollar</item>
+        <item>@drawable/hong_kong</item>
         <item>@drawable/britain</item>
         <item>@drawable/india</item>
         <item>@drawable/australia</item>

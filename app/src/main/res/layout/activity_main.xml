@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        app:title="@string/toolbar_title"
+        app:logo="@mipmap/ic_launcher">
 
     </android.support.v7.widget.Toolbar>
 
