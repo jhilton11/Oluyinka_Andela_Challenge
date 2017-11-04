@@ -1,27 +1,30 @@
 <resources>
     <string name="app_name">Andela Android Application Challenge</string>
 
+    <string name="spinner_prompt">Please choose base currency</string>
+
     <string-array name="abv_array">
         <item>NGN</item>
         <item>USD</item>
         <item>EUR</item>
         <item>JPY</item>
         <item>KRW</item>
-        <item>RUP</item>
-        <item>SWF</item>
+        <item>RUB</item>
+        <item>CHF</item>
         <item>HKD</item>
         <item>GBP</item>
         <item>INR</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
+        <item>AUD</item>
+        <item>CAD</item>
+        <item>SGD</item>
+        <item>TRY</item>
+        <item>ZAR</item>
+        <item>NZD</item>
+        <item>NOK</item>
+        <item>BRL</item>
+        <item>SEK</item>
+        <item>CNY</item>
+        <item>MXN</item>
     </string-array>
 
     <string-array name="names_array">
@@ -35,30 +38,40 @@
         <item>Hong Kong Dollars</item>
         <item>Great Britain Pounds</item>
         <item>Indian Rupees</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
-        <item>NGN</item>
+        <item>Australian Dollar</item>
+        <item>Canadian Dollar</item>
+        <item>Singapore Dollar</item>
+        <item>Turkish Lira</item>
+        <item>South African Rand</item>
+        <item>New Zealand Dollar</item>
+        <item>Norwegian Krone</item>
+        <item>Brazilian Reel</item>
+        <item>Swedish Krona</item>
+        <item>Chinese Yuan</item>
+        <item>Mexican Peso</item>
     </string-array>
 
     <integer-array name="currency_drawables">
-        <item>@drawable/naira</item>
-        <item>@drawable/usdollars</item>
-        <item>@drawable/euros</item>
-        <item>@drawable/jap_yen</item>
+        <item>@drawable/nigeria</item>
+        <item>@drawable/usa</item>
+        <item>@drawable/eu</item>
+        <item>@drawable/japan</item>
         <item>@drawable/kor_won</item>
-        <item>@drawable/rus_ruble</item>
-        <item>@drawable/swiss_francs</item>
+        <item>@drawable/russia</item>
+        <item>@drawable/swiss</item>
         <item>@drawable/hk_dollar</item>
-        <item>@drawable/gbp</item>
-        <item>@drawable/ind_rupee</item>
-        <item>@drawable/can_dollars</item>
-        <item>@drawable/nzl_dollars</item>
+        <item>@drawable/britain</item>
+        <item>@drawable/india</item>
+        <item>@drawable/australia</item>
+        <item>@drawable/canada</item>
+        <item>@drawable/singapore</item>
+        <item>@drawable/turkey</item>
+        <item>@drawable/south_africa</item>
+        <item>@drawable/nzl</item>
+        <item>@drawable/norway</item>
+        <item>@drawable/brazil</item>
+        <item>@drawable/sweden</item>
+        <item>@drawable/china</item>
+        <item>@drawable/mexico</item>
     </integer-array>
 </resources>

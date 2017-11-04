@@ -81,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateCurrencyArray() {
         currencyArray = new ArrayList<>();
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<arrNames.length; i++) {
             String name = arrNames[i];
             String abv = arrAbv[i];
             Currency currency = new Currency(i, name, abv);
             currencyArray.add(currency);
         }
-        Toast.makeText(this, "loaded " + currencyArray.size() + " objects", Toast.LENGTH_LONG).show();
     }
 }
