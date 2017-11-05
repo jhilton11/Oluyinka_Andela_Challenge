@@ -3,5 +3,5 @@ This is a challenge from Andela to design an android app to show the latest exch
 # Screenshots
 ![Screenshot 1](/Screenshot_1.png?raw=true "Optional Title") 
 ![Screenshot 2](/Screenshot_2.png?raw=true "Optional Title")
-![Screenshot 3](/Screenshot_3.png?raw=true "Optional Title")
+![Screenshot 3](/Screenshot_3.png?raw=true "Choose base currency - BTC or ETH")
 ![Screenshot 4](/Screenshot_4.png?raw=true "Optional Title")
