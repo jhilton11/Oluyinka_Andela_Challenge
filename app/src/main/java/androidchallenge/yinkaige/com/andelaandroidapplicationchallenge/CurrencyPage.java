@@ -4,12 +4,14 @@ package androidchallenge.yinkaige.com.andelaandroidapplicationchallenge;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -33,11 +35,13 @@ public class CurrencyPage extends AppCompatActivity {
     TextView currencyTv, rateTv, amountTv;
     EditText amountEt;
     Spinner spinner;
+    Button refreshButton;
     ImageView currencyImage;
+    Toolbar toolbar;
     private String URL;
     private String abv, name, currencySymbol;
-    private String[] baseCurrencies = new String[] {"Bitcoin", "Etherium"};
-    private double ethRate = 0, btcRate = 0, amount;
+    private String[] baseCurrencies = new String[] {"Bitcoin", "Ethereum"};
+    private long ethRate = 0, btcRate = 0, amount;
     final private int BTC = 1, ETH = 2;
     private int mode;
 
@@ -45,6 +49,11 @@ public class CurrencyPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_page);
+
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         name = getIntent().getStringExtra("name");
         abv = getIntent().getStringExtra("abv");
@@ -63,16 +72,16 @@ public class CurrencyPage extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0)
-                    amount = Double.parseDouble(charSequence.toString());
+                    amount = (int)Double.parseDouble(charSequence.toString());
                 else
                     amount = 0;
 
                 if (ethRate > 0 && btcRate > 0) {
                     if (mode == BTC) {
-                        double convertedAmount = amount * btcRate;
+                        long convertedAmount = amount * btcRate;
                         amountTv.setText(currencySymbol + String.valueOf(convertedAmount));
                     } else if (mode == ETH) {
-                        double convertedAmount = amount * ethRate;
+                        long convertedAmount = amount * ethRate;
                         amountTv.setText(currencySymbol + String.valueOf(convertedAmount));
                     }
                 }
@@ -104,8 +113,8 @@ public class CurrencyPage extends AppCompatActivity {
                     currencyImage.setImageResource(R.drawable.btc);
                     rateTv.setText("BTC - " + abv + " = " + btcRate);
                 } else if (i==1) {
-                    mode = BTC;
-                    currencyTv.setText("Etherium");
+                    mode = ETH;
+                    currencyTv.setText("Ethereum");
                     currencyImage.setImageResource(R.drawable.eth);
                     rateTv.setText("ETH - " + abv + " = " + ethRate);
                 }
@@ -114,6 +123,14 @@ public class CurrencyPage extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        refreshButton = (Button)findViewById(R.id.refreshButton);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeVolleyRequest();
             }
         });
 
@@ -140,11 +157,11 @@ public class CurrencyPage extends AppCompatActivity {
                         try {
                             JSONObject object = response.getJSONObject("BTC");
                             String btcString = object.getString(abv);
-                            btcRate = Double.parseDouble(btcString);
+                            btcRate = (long)Double.parseDouble(btcString);
 
                             object = response.getJSONObject("ETH");
                             String ethString = object.getString(abv);
-                            ethRate = Double.parseDouble(ethString);
+                            ethRate = (long)Double.parseDouble(ethString);
 
                             if (mode == 1) {
                                 rateTv.setText("BTC - " + abv + " = " + btcRate);
@@ -163,6 +180,13 @@ public class CurrencyPage extends AppCompatActivity {
                         amountTv.setText("Unable to load. Please click the refresh button");
                     }
                 });
+
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public boolean onNavigateUp() {
+        onBackPressed();
+        return super.onNavigateUp();
     }
 }

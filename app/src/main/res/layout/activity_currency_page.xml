@@ -18,21 +18,32 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <Spinner
-        android:id="@+id/spinner"
+    <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/toolbar"
-        android:prompt="@string/spinner_prompt"/>
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spinner_prompt" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/currencyTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/linearlayout"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -73,5 +84,17 @@
         android:inputType="numberDecimal"
         android:textAlignment="center"
         android:hint="Enter amount to be converted"/>
+
+    <Button
+        android:text="Refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amountET"
+        android:layout_toRightOf="@+id/currencyImage"
+        android:layout_toEndOf="@+id/currencyImage"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/refreshButton" />
 
 </RelativeLayout>
