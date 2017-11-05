@@ -27,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //load array of currency codes from values xml folder
         arrAbv = getResources().getStringArray(R.array.abv_array);
+        //load array of currency names from values xml folder
         arrNames = getResources().getStringArray(R.array.names_array);
+        //load array of currency drawables from values xml folder
         currencyDrawables = getResources().obtainTypedArray(R.array.currency_drawables);
 
+        //create arraylist of currency class for populating the recycler adapter
         populateCurrencyArray();
 
-        getSupportActionBar();
         gridLayoutManager = new GridLayoutManager(this, 3);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -50,16 +53,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 
     @Override

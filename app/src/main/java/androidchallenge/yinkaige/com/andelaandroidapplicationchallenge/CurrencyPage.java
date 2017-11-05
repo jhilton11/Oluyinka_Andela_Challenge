@@ -55,14 +55,17 @@ public class CurrencyPage extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //get currency name and code from intent.
         name = getIntent().getStringExtra("name");
         abv = getIntent().getStringExtra("abv");
         URL = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=" + abv;
         java.util.Currency curr = Currency.getInstance(abv);
         currencySymbol = curr.getSymbol();
 
+        //mode helps to set the base currency to either BTC or ETH
         mode = BTC;
         amountEt = (EditText)findViewById(R.id.amountET);
+        //addTextChangedListener
         amountEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -99,6 +102,7 @@ public class CurrencyPage extends AppCompatActivity {
         currencyTv = (TextView)findViewById(R.id.currencyTv);
 
         currencyImage = (ImageView)findViewById(R.id.currencyImage);
+        //set up spinner to set the base currency to either BTC or ETH
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, baseCurrencies);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -126,6 +130,7 @@ public class CurrencyPage extends AppCompatActivity {
             }
         });
 
+        //Set up the refresh button to remake the android volley request
         refreshButton = (Button)findViewById(R.id.refreshButton);
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +139,7 @@ public class CurrencyPage extends AppCompatActivity {
             }
         });
 
+        // Grab the ETH and BTC prices from the Cryptocompare API
         makeVolleyRequest();
     }
 
@@ -155,17 +161,21 @@ public class CurrencyPage extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         progressDialog.dismiss();
                         try {
+                            //grab BTC price
                             JSONObject object = response.getJSONObject("BTC");
                             String btcString = object.getString(abv);
                             btcRate = (long)Double.parseDouble(btcString);
 
+                            //grab ETH price
                             object = response.getJSONObject("ETH");
                             String ethString = object.getString(abv);
                             ethRate = (long)Double.parseDouble(ethString);
 
                             if (mode == 1) {
+                                //display the BTC exchange rate
                                 rateTv.setText("BTC - " + abv + " = " + btcRate);
                             } else if (mode == 2) {
+                                //display the ETH exchange rate
                                 rateTv.setText("ETH - " + abv + " = " + ethRate);
                             }
                         } catch (JSONException e) {
@@ -184,8 +194,9 @@ public class CurrencyPage extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+    //set up back button to return to previous activity
     @Override
-    public boolean onNavigateUp() {
+    public boolean onSupportNavigateUp() {
         onBackPressed();
         return super.onNavigateUp();
     }
